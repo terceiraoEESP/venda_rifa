@@ -1,0 +1,175 @@
+:root{
+  --lilac: #f2e4ff;
+  --card-border: rgba(255,255,255,0.25);
+  --max-width: 720px;
+  --radius: 18px;
+  --gap: 18px;
+  --accent: #8d7ce7;
+  --accent-gradient: linear-gradient(90deg,#8d7ce7,#c79fff);
+  --text: #1b1b1b;
+}
+
+/* Reset simples */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--lilac);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:36px;
+  padding-bottom:120px; /* 👈 espaço extra embaixo do card */
+}
+
+.wrap{
+  width:100%;
+  max-width:var(--max-width);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin: 80px 0;
+}
+
+/* Card */
+.card{
+  width:100%;
+  max-width: 650px;          
+  background: rgba(255, 255, 255, 0.543);
+  border: 1px solid var(--card-border);
+  border-radius:var(--radius);
+  padding:28px;
+  margin-bottom: 100px;
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  box-shadow: 0 12px 40px rgba(46,30,84,0.15);
+  display:flex;
+  flex-direction:column;
+  gap:var(--gap);
+}
+
+/* Título */
+.title{
+  text-align:center;
+  font-size:clamp(20px, 3.6vw, 28px);
+  font-weight:700;
+  color:var(--accent);
+  letter-spacing:0.2px;
+}
+
+/* Imagem */
+.image-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  margin:20px 0 40px 0; /* 20px em cima, 40px embaixo */
+}
+
+.image-wrap img{
+  width:100%;
+  max-width:420px;
+  height:auto;
+  border-radius:12px;
+  object-fit:cover;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.277);
+  display:block;
+  margin:0 auto;
+  transition: transform 0.35s ease;
+  cursor: pointer;
+}
+
+/* Zoom toggle */
+.image-wrap img.zoom{
+  transform: scale(1.25); /* 👈 cresce ao clicar */
+}
+
+/* Legenda */
+.caption{
+  max-width: 600px;        
+  margin: 0 auto;          
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.8;
+  padding: 16px 20px;
+  color: rgba(27,27,27,0.85);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+.caption b.highlight{
+  display: block;
+  font-size: 17px;
+  margin-bottom: 6px;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.caption b.highlight:hover{
+  transform: scale(1.05);
+}
+
+.caption ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+}
+
+.caption ul li {
+  margin-bottom: 6px;
+  transition: all 0.3s ease;
+}
+
+.caption ul li::before {
+  content: "🎁";        
+  margin-right: 8px;
+}
+
+.caption ul li:hover {
+  transform: translateX(5px);
+  color: var(--accent);
+}
+
+.caption p {
+  margin-bottom: 14px;
+}
+
+/* Responsividade */
+@media (max-width:480px){
+  body{padding:18px; padding-bottom:100px;}
+  .card{padding:18px}
+  .title{font-size:18px}
+}
+
+/* Botão Instagram */
+.btn-instagram {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: linear-gradient(45deg, #f77737, #c13584, #405de6);
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(141, 124, 231, 0.35);
+  transition: all 0.3s ease;
+}
+
+.btn-instagram:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(141, 124, 231, 0.5);
+}
+
+/* Textinho do perfil embaixo do botão com gradiente igual ao botão */
+.insta-text {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  background: linear-gradient(45deg, #f77737, #c13584, #405de6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
